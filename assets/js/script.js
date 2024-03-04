@@ -15,6 +15,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    //Allows user to use enter key instead of click submit
+    document.getElementById("answer-box").addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            checkAnswer();
+        }
+    });
+
     runGame("addition");
 
 });
@@ -117,7 +124,7 @@ function displayAdditionQuestion(operand1, operand2) {
 }
 
 function displaySubtractQuestion(operand1, operand2) {
-//Need to make sure that operand1 is greater than operand2 so that the return value isn't negative
+    //Need to make sure that operand1 is greater than operand2 so that the return value isn't negative
     document.getElementById("operand1").textContent = operand1 > operand2 ? operand1 : operand2;
     document.getElementById("operand2").textContent = operand1 > operand2 ? operand2 : operand1;
     document.getElementById("operator").textContent = "-";
